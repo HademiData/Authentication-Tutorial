@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: Auth
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: auth_db
+    volumes:
+      - /postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+
