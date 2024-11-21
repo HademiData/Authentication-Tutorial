@@ -1,6 +1,5 @@
 package com.HademiPoint.Auth_service.auth;
 
-import com.HademiPoint.Auth_service.Role.Role;
 import com.HademiPoint.Auth_service.config.JwtService;
 import com.HademiPoint.Auth_service.user.User;
 import com.HademiPoint.Auth_service.user.UserRepository;
@@ -28,7 +27,7 @@ public class AuthenticationService {
                  .email(request.getEmail())
                  .password(passwordEncoder.encode(request.getPassword()))
                  .phone(request.getPhone())
-                 .role(Role.CUSTOMER)
+                 .role(request.getRole())
                  .build();
          repository.save(user);
          var jwtToken = jwtService.generateToken(user);

@@ -1,6 +1,7 @@
 package com.HademiPoint.Auth_service.auth;
 
 
+import com.HademiPoint.Auth_service.Role.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,5 @@ public class RegisterRequest {
     private String phone;
     private String email;
     private String password;
+    private Role role;
 }
