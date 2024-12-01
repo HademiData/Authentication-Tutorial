@@ -1,6 +1,7 @@
 package com.HademiPoint.Auth_service.user;
 
 import com.HademiPoint.Auth_service.Role.Role;
+import com.HademiPoint.Auth_service.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,9 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
 
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
